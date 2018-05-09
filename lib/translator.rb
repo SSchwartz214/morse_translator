@@ -41,11 +41,18 @@ class Translator
   end
 
   def eng_to_morse(text)
-    letters = text.split("")
+    letters = text.downcase.split("")
     morse_code = letters.map do |character|
       @dictionary[character]
     end
     morse_code.join
+  end
+
+  def from_file(file)
+    file = File.open("input.txt", "r")
+    contents = file.read
+
+    eng_to_morse(contents)
   end
 
 end
