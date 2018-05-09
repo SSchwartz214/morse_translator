@@ -11,7 +11,7 @@ class TranslatorTest < Minitest::Test
     assert_instance_of Translator, translator
   end
 
-  def test_it_can_translate_a_phrase
+  def test_it_can_translate_a_phrase_from_eng_to_morse
     translator = Translator.new
 
     assert_equal "......-...-..--- .-----.-..-..-..", translator.eng_to_morse("hello world")
@@ -23,6 +23,12 @@ class TranslatorTest < Minitest::Test
     translator = Translator.new
 
     assert_equal ".. .--- ..-. .- ..-....-...", translator.from_file("input.txt")
+  end
+
+  def test_it_can_translate_a_phrase_from_morse_to_eng
+    translator = Translator.new
+
+    assert_equal "hello world", translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
   end
 
 end

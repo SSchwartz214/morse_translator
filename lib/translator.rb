@@ -55,4 +55,13 @@ class Translator
     eng_to_morse(contents)
   end
 
+  def morse_to_eng(morse)
+    morse_characters = morse.split(" ")
+    english_translation = morse_characters.map do |character|
+      @dictionary.key(character)
+    end
+    english_translation.join
+  end
+
+
 end
