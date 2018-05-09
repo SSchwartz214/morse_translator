@@ -62,6 +62,4 @@ class Translator
     end
     english_translation.join
   end
-
-
 end
