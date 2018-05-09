@@ -39,4 +39,13 @@ class Translator
                     "0" => "-----",
                     " " => " "}
   end
+
+  def eng_to_morse(text)
+    letters = text.split("")
+    morse_code = letters.map do |character|
+     binding.pry
+        @dictionary[character]
+    end
+  end
+
 end
