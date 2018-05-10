@@ -49,17 +49,18 @@ class Translator
   end
 
   def from_file(file)
-    file = File.open("input.txt", "r")
-    contents = file.read
+    opened_file = File.open(file, "r")
+    contents = opened_file.read
 
     eng_to_morse(contents)
   end
 
-  def morse_to_eng(morse)
+
+    def morse_to_eng(morse)
     morse_characters = morse.split(" ")
     english_translation = morse_characters.map do |character|
       @dictionary.key(character)
     end
-    english_translation.join
-  end
+    english_translation.insert(5," ").join
+    end
 end
